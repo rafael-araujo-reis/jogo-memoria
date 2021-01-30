@@ -7,6 +7,9 @@
 
 *{
     @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap');
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -51,4 +54,29 @@ img{
 .card-front{
      background-color: var(--bg-front);
      transform: rotateY(180deg);
+}
+
+#gameOver{
+    background-color: rgba(0,0,0,0.8);
+    font-size: 50px;
+    display: none; /*mudar para flex via js*/
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    color: white;
+}
+
+#reset{
+    margin-top: 20px;
+    font-size: 25px;
+    background: #ec5600;
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 15px;
 }
