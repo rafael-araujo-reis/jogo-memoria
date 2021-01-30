@@ -16,10 +16,17 @@ body{
 .card{
     width: var(--px-card);
     height: var(--px-card);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.flip{
+    transform: rotateY(180deg);
 }
 
 .card-back, .card-front{
-    /* border: 1px solid #000; */
+    position: absolute;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
     width: 100%;
@@ -27,6 +34,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    backface-visibility: hidden;
 }
 
 img{
@@ -35,11 +43,12 @@ img{
 
 .card-back{
     font-size: 70px;
-    color: var(--bg-back);
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
+    color: var(--bg-front);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
     background-color: var(--bg-back);
 }
 
 .card-front{
      background-color: var(--bg-front);
+     transform: rotateY(180deg);
 }
