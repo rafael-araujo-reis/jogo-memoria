@@ -1,0 +1,45 @@
+:root{
+    --px-card: 150px;
+
+    --bg-back: #4B89FB;
+    --bg-front: #001947;
+}
+
+*{
+    @import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap');
+}
+
+body{
+    font-family: 'Gorditas', cursive;
+}
+
+.card{
+    width: var(--px-card);
+    height: var(--px-card);
+}
+
+.card-back, .card-front{
+    /* border: 1px solid #000; */
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    height: 80%;
+}
+
+.card-back{
+    font-size: 70px;
+    color: var(--bg-back);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
+    background-color: var(--bg-back);
+}
+
+.card-front{
+     background-color: var(--bg-front);
+}
