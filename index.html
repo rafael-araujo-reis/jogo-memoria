@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,13 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
-    <div class="card">
-        <div class="card-front">
-            <img src="./images/madruga.png" alt="">
-        </div>
-        <div class="card-back">
-            ?
+
+    <div class="board">
+        <div id="hashas" class="card" data-icon="madruga">
+            <div class="card-front">
+                <img src="./images/madruga.png">
+            </div>
+            <div class="card-back">
+                ?
+            </div>
         </div>
     </div>
 
@@ -23,4 +28,7 @@
         <button id="reset" onclick="reset()">Jogar novamente</button>
     </div>
 </body>
+
+<script src="./js/cards.js"></script>
+
 </html>
