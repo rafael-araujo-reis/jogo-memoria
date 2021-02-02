@@ -2,20 +2,24 @@ const CARD_FRONT = `card-front`;
 const CARD_BACK = `card-back`;
 const BOARD = `board`;
 const CLASS_CARD = `card`;
+const CLASS_FLIP = `flip`;
 const EXT_CARD = `?`;
 const MKDIR = `./images/`;
 const EXTENTION = `.png`;
-const ICON = `icon`;
+const TIME_OUT = 1000;
 
 startGame();
 
-function startGame(){
+function startGame() {
     cards = game.createCards();
     printCards(cards);
 }
 
-function printCards(cards){
+function printCards(cards) {
     let board = document.getElementById(BOARD);
+    board.innerHTML = ''
+    game.count = 0;
+
     cards.forEach(card => {
         let cardElement = document.createElement('div');
         cardElement.id = card.id;
@@ -27,26 +31,52 @@ function printCards(cards){
     });
 }
 
-function createCardContent(card, cardElement){
+function createCardContent(card, cardElement) {
     createCardFace(CARD_FRONT, card, cardElement);
     createCardFace(CARD_BACK, card, cardElement);
 }
 
-function createCardFace(face, card, element){
+function createCardFace(face, card, element) {
     let cardElementFace = document.createElement('div');
     cardElementFace.classList.add(face);
-    if(face === CARD_FRONT){
+    if (face === CARD_FRONT) {
         let iconElement = document.createElement('img');
-        iconElement.classList.add(ICON);
         iconElement.src = MKDIR + card.img + EXTENTION;
         cardElementFace.appendChild(iconElement);
         cardElementFace.style.background = card.bg;
-    }else{
+    } else {
         cardElementFace.innerHTML = EXT_CARD;
     }
     element.appendChild(cardElementFace);
 }
 
-function flipCard(){
-    this.classList.add('flip');
+function flipCard() {
+    if (game.setCard(this.id)) {
+        this.classList.add(CLASS_FLIP);
+
+        if (game.secundCard) {
+            if (game.checkMatch()) {
+                game.clearCards();
+                if (game.checkGameOver()) {
+                    let gameOver = document.getElementById('gameOver');
+                    gameOver.style.display = 'flex';
+                }
+            } else {
+                setTimeout(() => {
+                    let firstCardView = document.getElementById(game.firstCard.id);
+                    let secundCardView = document.getElementById(game.secundCard.id);
+                    firstCardView.classList.remove(CLASS_FLIP);
+                    secundCardView.classList.remove(CLASS_FLIP);
+                    game.unFlippedCards();
+                }, TIME_OUT);
+            }
+        }
+    }
+
+}
+
+function reset() {
+    startGame();
+    let gameOver = document.getElementById('gameOver');
+    gameOver.style.display = 'none';
 }

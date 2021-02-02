@@ -1,6 +1,9 @@
 let game = {
     count: 0,
     cards: null,
+    lockMode: false,
+    firstCard: null,
+    secundCard: null,
 
     imgs: [
         'alegria',
@@ -29,6 +32,7 @@ let game = {
     ],
 
     createCards: function () {
+
         this.cards = [];
 
         for (let img of this.imgs) {
@@ -70,12 +74,53 @@ let game = {
     },
 
     createIdCard: function (img) {
-        return img + parseInt(Math.random() * Math.PI);
+        return img + parseInt(Math.random() * (Math.PI * 1500));
     },
 
     selectColorCard: function () {
         color = this.colors[this.count];
         return color;
-    }
+    },
 
+    setCard: function (id) {
+        let card = this.cards.filter(card => card.id === id)[0];
+
+        if (card.flipped || this.lockMode) {
+            return false;
+        }
+
+        if (!this.firstCard) {
+            this.firstCard = card;
+            this.firstCard.flipped = true;
+        } else {
+            this.secundCard = card;
+            this.secundCard.flipped = true;
+            this.lockMode = true;
+        }
+
+        return true;
+    },
+
+    unFlippedCards: function() {
+        this.firstCard.flipped = false;
+        this.secundCard.flipped = false;
+        this.clearCards();
+    },
+
+    checkMatch: function () {
+        if (!this.firstCard || !this.secundCard) {
+            return false;
+        }
+        return this.firstCard.img === this.secundCard.img;
+    },
+
+    clearCards: function () {
+        this.firstCard = null;
+        this.secundCard = null;
+        this.lockMode = false;
+    },
+    
+    checkGameOver: function (){
+        return this.cards.filter(card => !card.flipped).length == 0;
+    }
 }

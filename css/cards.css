@@ -1,5 +1,6 @@
 :root{
-    --px-card: 120px;
+    --px-card-w: 120px;
+    --px-card-h: var(--px-card-w);
 
     --bg-back: #4B89FB;
     --bg-front: #001947;
@@ -34,19 +35,18 @@ h1{
 }
 
 .board{
-    /* background: tomato; */
-    /* max-width: 700px; */
     display: grid;
     grid-template: repeat(4, 1fr) / repeat(5, 1fr);
     gap: 20px;
 }
 
 .card{
-    width: var(--px-card);
-    height: var(--px-card);
+    width: var(--px-card-w);
+    height: var(--px-card-h);
     position: relative;
     transform-style: preserve-3d;
     transition: transform .5s;
+    cursor: pointer;
 }
 
 .flip{
