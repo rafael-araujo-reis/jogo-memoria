@@ -19,7 +19,7 @@ h1{
     display: block;
     text-align: center;
     /* margin-bottom: 30px; */
-    top: 20px;
+    top:40px;
     font-size: 50px;
     width: 100%;
     justify-content: center;
@@ -45,7 +45,7 @@ h1{
 .board{
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(7, 1fr);
-    gap: 20px;
+    gap: 15px;
 }
 
 .card{
