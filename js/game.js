@@ -5,6 +5,12 @@ let game = {
     firstCard: null,
     secundCard: null,
 
+    jogador1: null,
+    jogador2: null,
+    pontosj1: 1,
+    pontosj2: 1,
+    jogador: 1,
+
     imgs: [
         'alegria',
         'chaves',
@@ -15,7 +21,11 @@ let game = {
         'kiko',
         'madruga',
         'mickey',
-        'nemo'
+        'nemo',
+        'gato',
+        'largatixo',
+        'corugita',
+        'pjmasks'
     ],
 
     colors: [
@@ -28,7 +38,11 @@ let game = {
         '#fd79a8',
         '#fab1a0',
         '#badc58',
-        '#030101'
+        '#030101',
+        '#ffffff',
+        '#a55a9f',
+        '#ffd014',
+        '#14ffd4'
     ],
 
     createCards: function () {
@@ -84,6 +98,8 @@ let game = {
 
     setCard: function (id) {
         let card = this.cards.filter(card => card.id === id)[0];
+        game.exibirAcerto(false);
+        game.exibirInfo(false);
 
         if (card.flipped || this.lockMode) {
             return false;
@@ -101,7 +117,7 @@ let game = {
         return true;
     },
 
-    unFlippedCards: function() {
+    unFlippedCards: function () {
         this.firstCard.flipped = false;
         this.secundCard.flipped = false;
         this.clearCards();
@@ -118,9 +134,59 @@ let game = {
         this.firstCard = null;
         this.secundCard = null;
         this.lockMode = false;
+        game.jogadorVez();
     },
-    
-    checkGameOver: function (){
+
+    checkGameOver: function () {
         return this.cards.filter(card => !card.flipped).length == 0;
+    },
+
+    exibirAcerto: function (boolean) {
+        var box = document.getElementById('box-sucess');
+        if (boolean) {
+            box.style.display = 'flex';
+        } else {
+            box.style.display = 'none';
+        }
+    },
+
+    exibirInfo: function (boolean) {
+        var box = document.getElementById('box-info');
+        if (boolean) {
+            box.style.display = 'flex';
+        } else {
+            box.style.display = 'none';
+        }
+    },
+
+    jogadorVez: function () {
+        jogadorVez = document.getElementById('jogadorVez');
+        if (this.jogador == 1) {
+            jogadorVez.innerHTML = this.jogador2
+            this.jogador = 2;
+        } else {
+            jogadorVez.innerHTML = this.jogador1
+            this.jogador = 1;
+        }
+    },
+
+    pontuar: function () {
+        if (this.jogador == 1) {
+            document.getElementById('ptos1').innerHTML = this.pontosj1++;
+        } else {
+            document.getElementById('ptos2').innerHTML = this.pontosj2++;
+        }
+    },
+    vencedor: function () {
+        frase = null;
+        if (this.pontosj1 > this.pontosj2) {
+            frase = 'Parabéns ' + this.jogador1 + ', você venceu!'
+        } else if (this.pontosj1 < this.pontosj2) {
+            frase = 'Parabéns ' + this.jogador2 + ', você venceu!'
+        } else {
+            frase = 'Deu empate, ninguém ganhou!';
+        }
+
+        document.getElementById('vencedor').innerHTML = frase;
     }
 }

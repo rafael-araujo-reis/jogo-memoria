@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/painel.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap" rel="stylesheet">
-    <title>Jogo da Mamória</title>
+    <title>Jogo da Memória</title>
 </head>
 
 <body>
@@ -17,26 +17,27 @@
 
         <div class="painel">
             <label>Primeiro jogador</label>
-            <input type="text" name="primeiro" id="primeiro">
+            <input type="text" name="primeiro" id="primeiro" onchange="jogador1()">
 
             <label>Segundo jogador</label>
-            <input type="text" name="segundo" id="segundo">
+            <input type="text" name="segundo" id="segundo" onchange="jogador2()">
 
-            <p id="jogador">Agora é a vez do <span>NOME</span></p>
+            <p id="jogador">Agora é a vez do <span id="jogadorVez">Jogador 1</span></p>
+
+            <div id="jogadas">
+                <p><span id="acertosj1">Jogador 1</span><br><span id="ptos1">0</span> pontos</p>
+                <hr>
+                <p><span id="acertosj2">Jogador 2</span><br><span id="ptos2">0</span> pontos</p>
+            </div>
 
             <div class="msg-card">
-                <div class="box-msg sucess">
+                <div id="box-sucess" class="box-msg sucess">
                     <p id="msg-sucess">Parabéns, você acertou!</p>
                 </div>
 
-                <div class="box-msg info">
+                <div id="box-info" class="box-msg info">
                     <p id="msg-info">Puts! Você errou, não foi dessa vez.</p>
                 </div>
-            </div>
-
-            <div id="jogadas">
-                <p id="jogadas1"><span>NOME</span><br>10 jogadas</p>
-                <p id="jogagas2"><span>NOME</span><br>10 jogadas</p>
             </div>
         </div>
         <div class="container">
@@ -48,12 +49,25 @@
 
 
     <div id="gameOver">
-        <p>Parabéns, você finalizou o jogo!</p>
+        <p id="vencedor">Parabéns, você finalizou o jogo!</p>
         <button id="reset" onclick="reset()">Jogar novamente</button>
     </div>
 </body>
 
 <script src="./js/game.js"></script>
 <script src="./js/cards.js"></script>
+
+<script>
+    function jogador1() {
+        game.jogador1 = document.getElementById('primeiro').value;
+        document.getElementById('acertosj1').innerHTML = game.jogador1;
+        document.getElementById('jogadorVez').innerHTML = game.jogador1;
+    }
+
+    function jogador2() {
+        game.jogador2 = document.getElementById('segundo').value;
+        document.getElementById('acertosj2').innerHTML = game.jogador2;
+    }
+</script>
 
 </html>

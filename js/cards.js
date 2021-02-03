@@ -56,12 +56,16 @@ function flipCard() {
 
         if (game.secundCard) {
             if (game.checkMatch()) {
+                game.exibirAcerto(true);
+                game.pontuar();
                 game.clearCards();
                 if (game.checkGameOver()) {
+                    game.vencedor();
                     let gameOver = document.getElementById('gameOver');
                     gameOver.style.display = 'flex';
                 }
             } else {
+                game.exibirInfo(true);
                 setTimeout(() => {
                     let firstCardView = document.getElementById(game.firstCard.id);
                     let secundCardView = document.getElementById(game.secundCard.id);
