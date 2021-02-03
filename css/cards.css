@@ -1,6 +1,7 @@
 :root{
     --px-card-w: 120px;
     --px-card-h: var(--px-card-w);
+    --px-painel-w: 250px;
 
     --bg-back: #4B89FB;
     --bg-front: #001947;
@@ -15,8 +16,10 @@
 }
 
 h1{
-    display: flex;
-    top: 40px;
+    display: block;
+    text-align: center;
+    /* margin-bottom: 30px; */
+    top: 20px;
     font-size: 50px;
     width: 100%;
     justify-content: center;
@@ -25,18 +28,23 @@ h1{
     position: absolute;
 }
 
+.tela{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 .container{
-    
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;;
-    background-color: #9ddbffcc;
+    height: 100vh;
+    width: calc(100% - var(--px-painel-w));
+    background-color: #D6F0FF;
 }
 
 .board{
     display: grid;
-    grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    grid-template: repeat(3, 1fr) / repeat(7, 1fr);
     gap: 20px;
 }
 

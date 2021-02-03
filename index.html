@@ -12,11 +12,40 @@
 </head>
 
 <body>
-    <h1>Jogo da Memória</h1>
-    <div class="container">
-        <div id="board" class="board">
+
+    <div class="tela">
+
+        <div class="painel">
+            <label>Primeiro jogador</label>
+            <input type="text" name="primeiro" id="primeiro">
+
+            <label>Segundo jogador</label>
+            <input type="text" name="segundo" id="segundo">
+
+            <p id="jogador">Agora é a vez do <span>NOME</span></p>
+
+            <div class="msg-card">
+                <div class="box-msg sucess">
+                    <p id="msg-sucess">Parabéns, você acertou!</p>
+                </div>
+
+                <div class="box-msg info">
+                    <p id="msg-info">Puts! Você errou, não foi dessa vez.</p>
+                </div>
+            </div>
+
+            <div id="jogadas">
+                <p id="jogadas1"><span>NOME</span><br>10 jogadas</p>
+                <p id="jogagas2"><span>NOME</span><br>10 jogadas</p>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Jogo da Memória</h1>
+            <div id="board" class="board">
+            </div>
         </div>
     </div>
+
 
     <div id="gameOver">
         <p>Parabéns, você finalizou o jogo!</p>
