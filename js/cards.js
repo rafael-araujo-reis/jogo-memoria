@@ -83,4 +83,13 @@ function reset() {
     startGame();
     let gameOver = document.getElementById('gameOver');
     gameOver.style.display = 'none';
+
+    game.pontosj1 = 1;
+    game.pontosj2 = 1;
+
+    document.getElementById('ptos1').innerHTML = 0;
+    document.getElementById('ptos2').innerHTML = 0;
+
+    game.exibirAcerto(false);
+    game.exibirInfo(false);
 }
