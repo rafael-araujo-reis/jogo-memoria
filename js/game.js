@@ -180,9 +180,9 @@ let game = {
     vencedor: function () {
         frase = null;
         if (this.pontosj1 > this.pontosj2) {
-            frase = 'Parabéns ' + this.jogador1 + ', você venceu!'
+            frase = 'Parabéns ' + this.jogador1 + '.<br> Você venceu!'
         } else if (this.pontosj1 < this.pontosj2) {
-            frase = 'Parabéns ' + this.jogador2 + ', você venceu!'
+            frase = 'Parabéns ' + this.jogador2 + '.<br> Você venceu!'
         } else {
             frase = 'Deu empate, ninguém ganhou!';
         }
