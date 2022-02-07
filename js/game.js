@@ -25,24 +25,12 @@ let game = {
         'gato',
         'largatixo',
         'corugita',
-        'pjmasks'
+        'pjmasks',
+        'luna'
     ],
 
     colors: [
         'ff6347',
-        '#81ecec',
-        '#a29bfe',
-        '#dfe6e9',
-        '#55efc4',
-        '#0984e3',
-        '#fd79a8',
-        '#fab1a0',
-        '#badc58',
-        '#030101',
-        '#ffffff',
-        '#a55a9f',
-        '#ffd014',
-        '#14ffd4'
     ],
 
     createCards: function () {
@@ -72,10 +60,10 @@ let game = {
                 img: img,
                 flipped: false
             }
-        ]
+        ];
     },
 
-    shuffleCards: function (cards) {
+    shuffleCards: function () {
         let currentIndex = this.cards.length;
         let randonIndex = 0;
 
@@ -98,8 +86,8 @@ let game = {
 
     setCard: function (id) {
         let card = this.cards.filter(card => card.id === id)[0];
-        game.exibirAcerto(false);
-        game.exibirInfo(false);
+        // game.exibirAcerto(false);
+        // game.exibirInfo(false);
 
         if (card.flipped || this.lockMode) {
             return false;
@@ -134,41 +122,41 @@ let game = {
         this.firstCard = null;
         this.secundCard = null;
         this.lockMode = false;
-        game.jogadorVez();
+        // game.jogadorVez();
     },
 
     checkGameOver: function () {
         return this.cards.filter(card => !card.flipped).length == 0;
     },
 
-    exibirAcerto: function (boolean) {
-        var box = document.getElementById('box-sucess');
-        if (boolean) {
-            box.style.display = 'flex';
-        } else {
-            box.style.display = 'none';
-        }
-    },
+    // exibirAcerto: function (boolean) {
+    //     var box = document.getElementById('box-sucess');
+    //     if (boolean) {
+    //         box.style.display = 'flex';
+    //     } else {
+    //         box.style.display = 'none';
+    //     }
+    // },
 
-    exibirInfo: function (boolean) {
-        var box = document.getElementById('box-info');
-        if (boolean) {
-            box.style.display = 'flex';
-        } else {
-            box.style.display = 'none';
-        }
-    },
+    // exibirInfo: function (boolean) {
+    //     var box = document.getElementById('box-info');
+    //     if (boolean) {
+    //         box.style.display = 'flex';
+    //     } else {
+    //         box.style.display = 'none';
+    //     }
+    // },
 
-    jogadorVez: function () {
-        jogadorVez = document.getElementById('jogadorVez');
-        if (this.jogador == 1) {
-            jogadorVez.innerHTML = this.jogador2
-            this.jogador = 2;
-        } else {
-            jogadorVez.innerHTML = this.jogador1
-            this.jogador = 1;
-        }
-    },
+    // jogadorVez: function () {
+    //     jogadorVez = document.getElementById('jogadorVez');
+    //     if (this.jogador == 1) {
+    //         jogadorVez.innerHTML = this.jogador2;
+    //         this.jogador = 2;
+    //     } else {
+    //         jogadorVez.innerHTML = this.jogador1;
+    //         this.jogador = 1;
+    //     }
+    // },
 
     pontuar: function () {
         if (this.jogador == 1) {
@@ -180,9 +168,9 @@ let game = {
     vencedor: function () {
         frase = null;
         if (this.pontosj1 > this.pontosj2) {
-            frase = 'Parabéns ' + this.jogador1 + '.<br> Você venceu!'
+            frase = 'Parabéns ' + this.jogador1 + '.<br> Você venceu!';
         } else if (this.pontosj1 < this.pontosj2) {
-            frase = 'Parabéns ' + this.jogador2 + '.<br> Você venceu!'
+            frase = 'Parabéns ' + this.jogador2 + '.<br> Você venceu!';
         } else {
             frase = 'Deu empate, ninguém ganhou!';
         }

@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/cards.css">
-    <link rel="stylesheet" href="./css/painel.css">
+
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/cards.css">
+    <link rel="stylesheet" href="./styles/painel.css">
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gorditas:wght@700&display=swap" rel="stylesheet">
     <title>Jogo da Memória</title>
@@ -15,22 +18,38 @@
 
     <div class="tela">
 
+        <div class="container">
+            <h1>Jogo da Memória</h1>
+
+            <div id="board" class="board"> </div>
+        </div>
+
+
         <div class="painel">
-            <label>Primeiro jogador</label>
-            <input type="text" name="primeiro" id="primeiro" onchange="jogador1()">
 
-            <label>Segundo jogador</label>
-            <input type="text" name="segundo" id="segundo" onchange="jogador2()">
-
-            <p id="jogador">Agora é a vez do <span id="jogadorVez">Jogador 1</span></p>
+            <input type="text" name="primeiro" id="primeiro" value="Jogador 1">
 
             <div id="jogadas">
-                <p><span id="acertosj1">Jogador 1</span><br><span id="ptos1">0</span> pontos</p>
-                <hr>
-                <p><span id="acertosj2">Jogador 2</span><br><span id="ptos2">0</span> pontos</p>
+
+                <div class="points">
+                    <p><span id="ptos1">0</span></p>
+                </div>
+                <div class="points">
+                    <p><span id="ptos2">0</span></p>
+                </div>
             </div>
 
-            <div class="msg-card">
+            <input type="text" name="segundo" id="segundo" value="Jogador 2">
+
+            <div class="new-game">
+                <img src="./assets/reset.svg" alt="">
+                <p>Novo jogo</p>
+            </div>
+            <!-- <p id="jogador">Agora é a vez do <span id="jogadorVez">Jogador 1</span></p> -->
+
+
+
+            <!-- <div class="msg-card">
                 <div id="box-sucess" class="box-msg sucess">
                     <p id="msg-sucess">Parabéns, você acertou!</p>
                 </div>
@@ -38,12 +57,7 @@
                 <div id="box-info" class="box-msg info">
                     <p id="msg-info">Puts! Você errou, não foi dessa vez.</p>
                 </div>
-            </div>
-        </div>
-        <div class="container">
-            <h1>Jogo da Memória</h1>
-            <div id="board" class="board">
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -57,7 +71,7 @@
 <script src="./js/game.js"></script>
 <script src="./js/cards.js"></script>
 
-<script>
+<!-- <script>
     function jogador1() {
         game.jogador1 = document.getElementById('primeiro').value;
         document.getElementById('acertosj1').innerHTML = game.jogador1;
@@ -68,6 +82,6 @@
         game.jogador2 = document.getElementById('segundo').value;
         document.getElementById('acertosj2').innerHTML = game.jogador2;
     }
-</script>
+</script> -->
 
 </html>

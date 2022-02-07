@@ -1,0 +1,122 @@
+:root {
+    --px-card-w: 7rem;
+    --px-card-h: 10rem;
+
+    --bg-back : linear-gradient(156.39deg, #C42839 2.74%, #438EFE 96.01%);
+    --bg-front: #FFFFD7;
+
+    --shadow    : rgba(0, 0, 0, 0.6);
+    --background: #FFFFFF;
+}
+
+* {
+    margin     : 0;
+    padding    : 0;
+    box-sizing : border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+}
+
+h1 {
+    margin    : 1rem 0;
+    text-align: center;
+    font-size : 3rem;
+    width     : 100%;
+    color     : var(--red);
+}
+
+.board {
+    display      : grid;
+    grid-template: repeat(3, 1fr) / repeat(10, 1fr);
+    gap          : 1rem;
+}
+
+.card {
+    width          : var(--px-card-w);
+    height         : var(--px-card-h);
+    position       : relative;
+    transform-style: preserve-3d;
+    transition     : transform .5s;
+    cursor         : pointer;
+}
+
+.card-back {
+    transition: box-shadow 0.2s;
+}
+
+.card-back:hover {
+    box-shadow: 0 0 1rem var(--shadow);
+}
+
+.card-front {
+    padding            : 1rem;
+    box-sizing         : border-box;
+    background-size    : contain;
+    background-repeat  : no-repeat;
+    background-position: center;
+    background-origin  : content-box;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.card-back,
+.card-front {
+    position           : absolute;
+    border-radius      : 0.5rem;
+    width              : 100%;
+    height             : 100%;
+    display            : flex;
+    justify-content    : center;
+    align-items        : center;
+    backface-visibility: hidden;
+}
+
+img {
+    height: 75%;
+}
+
+.card-back {
+    font-size  : 70px;
+    color      : var(--bg-front);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.45);
+    background : var(--bg-back);
+}
+
+.card-front {
+    background-color: var(--bg-front);
+    transform       : rotateY(180deg);
+}
+
+#gameOver {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size       : 50px;
+    display         : none;
+    flex-direction  : column;
+    text-align      : center;
+    align-items     : center;
+    justify-content : center;
+    position        : absolute;
+    width           : 100%;
+    height          : 100%;
+    top             : 0;
+    color           : white;
+    text-transform  : capitalize;
+}
+
+#reset {
+    margin-top   : 20px;
+    font-size    : 25px;
+    background   : #ec5600;
+    color        : white;
+    padding      : 15px 35px;
+    border       : none;
+    border-radius: 15px;
+}

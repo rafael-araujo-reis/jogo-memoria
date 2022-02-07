@@ -3,8 +3,8 @@ const CARD_BACK = `card-back`;
 const BOARD = `board`;
 const CLASS_CARD = `card`;
 const CLASS_FLIP = `flip`;
-const EXT_CARD = `?`;
-const MKDIR = `./images/`;
+// const EXT_CARD = `?`;
+const MKDIR = `./assets/images/`;
 const EXTENTION = `.png`;
 const TIME_OUT = 1000;
 
@@ -17,7 +17,7 @@ function startGame() {
 
 function printCards(cards) {
     let board = document.getElementById(BOARD);
-    board.innerHTML = ''
+    board.innerHTML = '';
     game.count = 0;
 
     cards.forEach(card => {
@@ -40,12 +40,14 @@ function createCardFace(face, card, element) {
     let cardElementFace = document.createElement('div');
     cardElementFace.classList.add(face);
     if (face === CARD_FRONT) {
-        let iconElement = document.createElement('img');
-        iconElement.src = MKDIR + card.img + EXTENTION;
+        let iconElement;
+        iconElement = document.createElement('img');
+        //iconElement.src = MKDIR + card.img + EXTENTION;
         cardElementFace.appendChild(iconElement);
-        cardElementFace.style.background = card.bg;
+        let url = MKDIR + card.img + EXTENTION;
+        cardElementFace.style.backgroundImage = `url(${url})`;
     } else {
-        cardElementFace.innerHTML = EXT_CARD;
+        // cardElementFace.innerHTML = EXT_CARD;
     }
     element.appendChild(cardElementFace);
 }
@@ -56,7 +58,7 @@ function flipCard() {
 
         if (game.secundCard) {
             if (game.checkMatch()) {
-                game.exibirAcerto(true);
+                // game.exibirAcerto(true);
                 game.pontuar();
                 game.clearCards();
                 if (game.checkGameOver()) {
@@ -65,7 +67,7 @@ function flipCard() {
                     gameOver.style.display = 'flex';
                 }
             } else {
-                game.exibirInfo(true);
+                // game.exibirInfo(true);
                 setTimeout(() => {
                     let firstCardView = document.getElementById(game.firstCard.id);
                     let secundCardView = document.getElementById(game.secundCard.id);
@@ -90,6 +92,6 @@ function reset() {
     document.getElementById('ptos1').innerHTML = 0;
     document.getElementById('ptos2').innerHTML = 0;
 
-    game.exibirAcerto(false);
-    game.exibirInfo(false);
+    // game.exibirAcerto(false);
+    // game.exibirInfo(false);
 }
