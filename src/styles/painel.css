@@ -1,4 +1,4 @@
-.painel {
+.painel-points {
     width          : 100%;
     background     : var(--red);
     align-items    : center;
@@ -14,7 +14,7 @@
     padding   : 1rem;
 }
 
-.painel input:first-child {
+.painel-points input:first-child {
     text-align: right;
 }
 

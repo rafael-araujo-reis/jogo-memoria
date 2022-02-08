@@ -86,8 +86,6 @@ let game = {
 
     setCard: function (id) {
         let card = this.cards.filter(card => card.id === id)[0];
-        // game.exibirAcerto(false);
-        // game.exibirInfo(false);
 
         if (card.flipped || this.lockMode) {
             return false;
@@ -122,41 +120,11 @@ let game = {
         this.firstCard = null;
         this.secundCard = null;
         this.lockMode = false;
-        // game.jogadorVez();
     },
 
     checkGameOver: function () {
         return this.cards.filter(card => !card.flipped).length == 0;
     },
-
-    // exibirAcerto: function (boolean) {
-    //     var box = document.getElementById('box-sucess');
-    //     if (boolean) {
-    //         box.style.display = 'flex';
-    //     } else {
-    //         box.style.display = 'none';
-    //     }
-    // },
-
-    // exibirInfo: function (boolean) {
-    //     var box = document.getElementById('box-info');
-    //     if (boolean) {
-    //         box.style.display = 'flex';
-    //     } else {
-    //         box.style.display = 'none';
-    //     }
-    // },
-
-    // jogadorVez: function () {
-    //     jogadorVez = document.getElementById('jogadorVez');
-    //     if (this.jogador == 1) {
-    //         jogadorVez.innerHTML = this.jogador2;
-    //         this.jogador = 2;
-    //     } else {
-    //         jogadorVez.innerHTML = this.jogador1;
-    //         this.jogador = 1;
-    //     }
-    // },
 
     pontuar: function () {
         if (this.jogador == 1) {
