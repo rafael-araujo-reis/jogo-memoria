@@ -91,8 +91,15 @@ img {
 }
 
 .card-front {
-    background-color: var(--bg-front);
-    transform       : rotateY(180deg);
+    background-color   : var(--bg-front);
+    /* border          : 0.1rem solid var(--bg-back); */
+    transform          : rotateY(180deg);
+
+    border                  : 0.5rem solid transparent;
+    border-image            : var(--bg-back);
+    border-image-slice      : 1;
+    /* height               : 120px; */
+    /* border-radius        : 10px; // will have no affect */
 }
 
 #gameOver {

@@ -9,7 +9,15 @@
     bottom  : 0;
 
     display: flex;
+
+    margin-top: 1rem;
+    padding   : 1rem;
 }
+
+.painel input:first-child {
+    text-align: right;
+}
+
 
 .box-msg {
     margin-top     : 10px;
@@ -58,6 +66,7 @@
     display         : flex;
     background-color: white;
     border-radius   : var(--border);
+
 }
 
 #jogadas p {
@@ -67,7 +76,11 @@
 }
 
 #jogadas .points:first-child {
-    border-right: 0.2rem solid var(--red);
+    border-right: 0.1rem solid var(--red);
+}
+
+#jogadas .points:last-child {
+    border-left: 0.1rem solid var(--red);
 }
 
 label,
@@ -83,15 +96,6 @@ input {
     font-size    : 18px;
 }
 
-.painel {
-
-    margin-top: 1rem;
-    padding   : 1rem;
-}
-
-.painel input:first-child {
-    text-align: right;
-}
 
 span {
     font-weight   : 500;
