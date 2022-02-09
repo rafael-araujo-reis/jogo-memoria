@@ -25,7 +25,7 @@
 
     <div class="painel-points">
 
-        <input type="text" name="primeiro" id="primeiro" value="Jogador 1">
+        <input type="text" name="1" id="primeiro" onchange="setGamer(this.value, this.name)" value="Jogador 1">
 
         <div id="jogadas">
 
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <input type="text" name="segundo" id="segundo" value="Jogador 2">
+        <input type="text" name="2" id="segundo" onchange="setGamer(this.value, this.name)" value="Jogador 2">
 
         <div class="new-game">
             <img src="./src/assets/reset.svg" alt="">
@@ -54,5 +54,11 @@
 
 <script src="./src/scripts/game.js"></script>
 <script src="./src/scripts/cards.js"></script>
+
+<script>
+    function setGamer(nome, jogador) {
+        jogador == 1 ? game.jogador1 = nome : game.jogador2 = nome;
+    }
+</script>
 
 </html>

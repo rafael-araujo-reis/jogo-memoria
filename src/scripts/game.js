@@ -5,8 +5,9 @@ let game = {
     firstCard: null,
     secundCard: null,
 
-    jogador1: null,
-    jogador2: null,
+    jogador1: 'Jogador 1',
+    jogador2: 'Jogador 2',
+
     pontosj1: 1,
     pontosj2: 1,
     jogador: 1,
@@ -110,9 +111,11 @@ let game = {
     },
 
     checkMatch: function () {
+
         if (!this.firstCard || !this.secundCard) {
             return false;
         }
+
         return this.firstCard.img === this.secundCard.img;
     },
 
@@ -135,6 +138,7 @@ let game = {
     },
     vencedor: function () {
         frase = null;
+
         if (this.pontosj1 > this.pontosj2) {
             frase = 'Parabéns ' + this.jogador1 + '.<br> Você venceu!';
         } else if (this.pontosj1 < this.pontosj2) {
@@ -144,5 +148,9 @@ let game = {
         }
 
         document.getElementById('vencedor').innerHTML = frase;
+    },
+
+    changeGamer: function () {
+        this.jogador === 1 ? this.jogador = 2 : this.jogador = 1;
     }
 }

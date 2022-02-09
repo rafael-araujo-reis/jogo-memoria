@@ -71,6 +71,7 @@ function flipCard() {
                     game.unFlippedCards();
                 }, TIME_OUT);
             }
+            game.changeGamer();
         }
     }
 

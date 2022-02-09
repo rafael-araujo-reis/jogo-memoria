@@ -118,7 +118,7 @@ img {
 #reset {
     margin-top   : 20px;
     font-size    : 25px;
-    background   : #ec5600;
+    background   : var(--bg-back);
     color        : white;
     padding      : 15px 35px;
     border       : none;
